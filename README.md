@@ -1,2 +1,0 @@
-# codepool
-sample app
