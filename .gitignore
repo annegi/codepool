@@ -1,0 +1,10 @@
+node_modules
+.git
+.DS_Store
+.idea
+npm-debug.log*
+*.iml
+deploy/
+dist/
+*-compiled.js
+*-compiled.js.map
