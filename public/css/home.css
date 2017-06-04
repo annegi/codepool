@@ -1,0 +1,29 @@
+body{
+    margin:0;
+}
+
+.container{
+    position: relative;
+}
+
+.homeBackground{
+    height: 100%;
+    background: url(/images/codepool.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.homeTitle{
+
+
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    color: lightgray;
+    opacity: 0.7;
+    font-size: 200px;
+    font-family: monospace;
+}
+
