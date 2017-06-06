@@ -33,7 +33,7 @@ docker cp ../src $appcontainer:/usr/src/app
 
 # Status of Application
 status(){
-docker ps ;; 
+docker ps 
 }
 
 case "$cmd" in
@@ -41,6 +41,7 @@ start)
 start ;;
 
 deploy)
+echo "Starting to deploy"
 deploy ;;
 
 stop)
