@@ -50,12 +50,14 @@ stop ;;
 status)
 status ;;
 
-
 restart)
 stop
 build
 start
 status ;;
+
+ssh)
+docker exec -ti $appcontainer /bin/bash ;;
 
 *)
 echo "Unkown command [$cmd]"
