@@ -1,7 +1,8 @@
 var bodyparser = require('body-parser');
 var path = require('path');
 var express = require('express');
-
+var learnReactRouter = require('../../routers/learnReactRouter');
+var LearnHTMLCSSJSRouter = require('../../routers/learHtmlCssJsRouter');
 //Custom middleware
 
 /*
@@ -34,8 +35,20 @@ class AppBooter{
           res.render('home');
       });
 
-      app.listen(3000, function () {
-          console.log("server started on port 3000");
+      app.get('/learn-react',function(req,res,next){
+            learnReactRouter.get(req,res,next);
+
+      });
+
+
+      app.get('/learn-html-css-js',function(req,res,next){
+          LearnHTMLCSSJSRouter.get(req,res,next);
+
+      });
+
+
+      app.listen(1338, function () {
+          console.log("server started on port 1338");
       });
 
   }
