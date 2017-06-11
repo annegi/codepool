@@ -9599,7 +9599,6 @@ var Form = function (_React$Component) {
                 }
             });
         };
-
         return _this;
     }
 

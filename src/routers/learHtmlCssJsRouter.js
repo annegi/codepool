@@ -9,6 +9,8 @@ class LearnHTMLCSSJSRouter {
                         <head>
                             <title>Learn HTML-CSS-JS</title>
                             <link rel='stylesheet' href='/css/learnHtml-CSS-JS.css' type="text/css" />
+                            <!-- Learning to use a jsonP -->
+                          <!--  <script src='http://localhost:3000/getJsonpResponse?callback=cb' defer></script> -->
                         </head>
                         <body>
                             <input id='inputField' onchange='changeFunction()' />
@@ -18,7 +20,6 @@ class LearnHTMLCSSJSRouter {
 
 
         res.setHeader("content-type", "text/html");
-        res.write(html);
         return res.end();
     }
 

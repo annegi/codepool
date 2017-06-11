@@ -8,7 +8,6 @@ let Card = (props)=>{
 
     return (<div style={{margin:'1em'}}>
                 <img width='75' src={props.avatar_url}></img>
-
                 <div style={{display:'inline-block',verticalAlign:'top',marginLeft:'1em'}}>
                     <div style={{fontSize:'24px',fontWeight:'bold'}}>{props.name}</div>
                     <div>{props.company}</div>
@@ -40,9 +39,7 @@ class Form extends React.Component{
                         this.props.addNewCard(resp.data);
                 }
             });
-
     }
-
 };
 
 
