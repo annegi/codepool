@@ -3,6 +3,7 @@ var path = require('path');
 var express = require('express');
 var learnReactRouter = require('../../routers/learnReactRouter');
 var LearnHTMLCSSJSRouter = require('../../routers/learHtmlCssJsRouter');
+var mysql = require('mysql');
 //Custom middleware
 
 /*
@@ -44,6 +45,41 @@ class AppBooter{
       app.get('/learn-html-css-js',function(req,res,next){
           LearnHTMLCSSJSRouter.get(req,res,next);
 
+      });
+
+      app.post('/users/add', function (req, res) {
+          var newuser = {
+              user_name: req.body.user_name,
+              user_number: req.body.user_number,
+              user_email: req.body.user_email
+          };
+          console.log(newuser);
+          var connection = mysql.createConnection({
+              host     : '172.31.28.57',
+              user     : 'root',
+              password : 'root',
+              database : 'codepool'
+          });
+
+          connection.connect(function(err) {
+              if (err) {
+                  console.error('error connecting: ' + err.stack);
+                  return;
+              }
+
+              console.log('connected as id ' + connection.threadId);
+              connection.query('SELECT * FROM user_info',function(err,rows){
+                  if(err) throw err;
+
+                  console.log('Data received from Db:\n');
+                  console.log(rows);
+              });
+              connection.query('REPLACE INTO user_info SET ?', newuser, function (err,res) {
+                  if(err) throw err;
+
+                  console.log('Last insert ID:', res.insertId);
+              })
+          });
       });
 
 

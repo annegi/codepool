@@ -6,7 +6,7 @@ appcontainer=`docker ps | awk '{print $1}' | sed -n '2p'`
 
 start(){
 # Starts app on dev server
-docker run -p 80:3000 -d codepool:1.0.0
+docker run -p 80:1338 -d codepool:1.0.0
 }
 
 stop(){
@@ -61,6 +61,6 @@ docker exec -ti $appcontainer /bin/bash ;;
 
 *)
 echo "Unkown command [$cmd]"
-echo "Use one of the following [start,stop,deploy]" ;;
+echo "Use one of the following [start,stop,deploy,restart,ssh]" ;;
 
 esac
