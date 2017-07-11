@@ -32,15 +32,17 @@ class Form extends React.Component{
     constructor(){
         super();
         this.state = {name:''};
-        this.handleSubmit = (event)=>{
-            event.preventDefault();
-            axios.get(`https://api.github.com/users/${this.state.name}`).then(resp=>{
-                if(resp && resp.data && !resp.data.message){
-                        this.props.addNewCard(resp.data);
-                }
-            });
+
     }
-};
+
+    handleSubmit = (event)=>{
+        event.preventDefault();
+        axios.get(`https://api.github.com/users/${this.state.name}`).then(resp=>{
+            if(resp && resp.data && !resp.data.message){
+                this.props.addNewCard(resp.data);
+            }
+        });
+    };
 
 
 
@@ -79,13 +81,6 @@ class App extends React.Component{
 
     }
 }
-
-
-
-
-
-
-
 
 
 ReactDOM.render(<App/>, document.getElementById("app"));

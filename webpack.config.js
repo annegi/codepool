@@ -1,18 +1,22 @@
 var path = require("path");
 module.exports = {
-    entry: './src/views/react/Git_Hub_Card_Api.jsx',
+    entry: './src/views/react/Number_Game.jsx',
     output: {path: __dirname+'/public/scripts', filename: 'codepool-react-bundle.js'},
     module: {
-        loaders: [
+        rules: [
             {
                 test: /.jsx?$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                    presets: ['es2015', 'react']
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['es2015','react'],
+                        plugins: [require('babel-plugin-transform-class-properties')]
+                    }
                 }
             }
         ]
     }
+
 
 };
